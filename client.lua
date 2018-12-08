@@ -503,12 +503,15 @@ end
 -- Key events
 Citizen.CreateThread(function()
 	while true do
-		Wait(0)
+		Wait(0)			
 		if IsControlPressed(0, 322) or IsControlPressed(0, 177) and cardOpen then
 			SendNUIMessage({
 				action = "close"
 			})
-			cardOpen = false
+			cardOpen = false				
+		end
+			if IsControlJustReleased(0, Keys['M']) and GetLastInputMethod(2) then
+	  		OpenVehicleMenu()
 		end
 	end
 end)
